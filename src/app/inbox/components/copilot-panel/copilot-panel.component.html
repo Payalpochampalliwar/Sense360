@@ -1,0 +1,154 @@
+
+<section class="copilot-panel">
+
+  <div class="copilot-header">
+    <div class="copilot-title">
+      <div class="ai-icon">✦</div>
+      <div>
+        <h3>Sense Copilot</h3>
+        <span>AI Underwriting Assistant</span>
+      </div>
+    </div>
+
+    <span class="online-dot"></span>
+  </div>
+
+  <div class="copilot-content">
+
+    <!-- Triage Score -->
+    <div class="section-card">
+
+      <div class="section-heading">
+        <strong>Triage Score</strong>
+        <span class="info-icon">i</span>
+      </div>
+
+      <div class="score-container">
+        <div class="score-circle">
+          <strong>78</strong>
+          <span>/100</span>
+        </div>
+
+        <div class="score-description">
+          <strong>Good Potential</strong>
+          <span>High priority submission</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Appetite Fit -->
+    <div class="section-card">
+
+      <div class="section-heading">
+        <strong>Appetite Fit</strong>
+      </div>
+
+      <div class="appetite-result">
+        <span class="check-icon">✓</span>
+        <div>
+          <strong>In Appetite</strong>
+          <span>Matches property underwriting guidelines</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Extracted Details -->
+    <div class="section-card">
+
+      <div class="section-heading">
+        <strong>Extracted Submission Details</strong>
+        <span class="view-link">View all</span>
+      </div>
+
+      <div class="detail-list">
+
+        <div class="detail-row" *ngFor="let detail of extractedDetails">
+          <span>{{ detail.label }}</span>
+          <strong>{{ detail.value }}</strong>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Risk Summary -->
+    <div class="section-card">
+
+      <div class="section-heading">
+        <strong>AI Risk Summary</strong>
+        <span class="ai-label">AI</span>
+      </div>
+
+      <p class="risk-summary">
+        {{ riskSummary }}
+      </p>
+
+    </div>
+
+    <!-- Missing Information -->
+    <div class="section-card missing-card">
+
+      <div class="section-heading">
+        <strong>Missing Information</strong>
+        <span class="missing-count">{{ missingInformation.length }}</span>
+      </div>
+
+      <div
+        class="missing-item"
+        *ngFor="let item of missingInformation">
+        <span>!</span>
+        {{ item }}
+      </div>
+
+    </div>
+
+    <!-- Actions -->
+    <div class="action-section">
+
+      <h4>Underwriting Actions</h4>
+
+      <button
+        class="action-button primary"
+        (click)="handleAction('Create Case')">
+        + Create Case
+      </button>
+
+      <button
+        class="action-button secondary"
+        (click)="handleAction('Link to Case')">
+        ↗ Link to Existing Case
+      </button>
+
+      <button
+        class="action-button secondary"
+        (click)="handleAction('Draft Reply')">
+        ✉ Draft Reply
+      </button>
+
+      <div class="decision-actions">
+
+        <button
+          class="refer-button"
+          (click)="handleAction('Refer')">
+          Refer
+        </button>
+
+        <button
+          class="decline-button"
+          (click)="handleAction('Decline')">
+          Decline
+        </button>
+
+      </div>
+
+      <div class="action-message" *ngIf="actionMessage">
+        {{ actionMessage }}
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

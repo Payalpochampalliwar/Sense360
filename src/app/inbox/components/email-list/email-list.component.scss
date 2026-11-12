@@ -1,0 +1,197 @@
+
+:host {
+  min-width: 0;
+  min-height: 0;
+}
+
+.email-list-panel {
+  height: 100%;
+  background: white;
+  border: 1px solid #e8e9ef;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.panel-heading {
+  padding: 19px 15px 13px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h3 {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 700;
+  }
+}
+
+.subheading {
+  color: #9295a5;
+  font-size: 11px;
+}
+
+.count-badge {
+  background: #eeeaff;
+  color: #6654e8;
+  padding: 4px 9px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.search-box {
+  margin: 4px 13px 12px;
+  height: 35px;
+  border: 1px solid #e9eaf0;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  gap: 8px;
+
+  span {
+    font-size: 20px;
+    color: #9093a2;
+  }
+
+  input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 11px;
+  }
+}
+
+.email-tabs {
+  display: flex;
+  padding: 0 12px;
+  border-bottom: 1px solid #eeeef3;
+
+  button {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 10px 2px;
+    font-size: 11px;
+    color: #858898;
+    border-bottom: 2px solid transparent;
+  }
+
+  button.active {
+    color: #6654e8;
+    border-bottom-color: #6654e8;
+    font-weight: 600;
+  }
+}
+
+.email-items {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.email-item {
+  padding: 14px 12px;
+  border-bottom: 1px solid #f0f0f4;
+  cursor: pointer;
+
+  &.selected {
+    background: #f5f3ff;
+    border-left: 3px solid #6654e8;
+  }
+}
+
+.email-top,
+.sender-info,
+.email-indicators {
+  display: flex;
+  align-items: center;
+}
+
+.email-top {
+  justify-content: space-between;
+}
+
+.sender-info {
+  gap: 7px;
+  min-width: 0;
+
+  strong {
+    font-size: 11px;
+  }
+}
+
+.sender-avatar {
+  width: 27px;
+  height: 27px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #e9e5ff;
+  color: #6654e8;
+  display: grid;
+  place-items: center;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.email-time {
+  font-size: 9px;
+  color: #9295a5;
+}
+
+.email-subject {
+  margin: 10px 0;
+  font-size: 11px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.email-indicators {
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.triage-score,
+.appetite-tag {
+  border-radius: 4px;
+  padding: 4px 7px;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.score-high {
+  background: #e0f6e9;
+  color: #159451;
+}
+
+.score-medium {
+  background: #fff2d8;
+  color: #b77a12;
+}
+
+.score-low {
+  background: #ffe7e7;
+  color: #ce4d4d;
+}
+
+.in-appetite {
+  background: #e5f5ed;
+  color: #198754;
+}
+
+.borderline {
+  background: #fff1d8;
+  color: #b77a12;
+}
+
+.out-appetite {
+  background: #ffe7e7;
+  color: #ce4d4d;
+}
+
+.missing-info {
+  margin-top: 9px;
+  color: #c48a26;
+  font-size: 9px;
+}

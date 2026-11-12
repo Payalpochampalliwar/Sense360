@@ -1,0 +1,105 @@
+
+<section class="email-viewer-panel">
+
+  <div class="email-toolbar">
+    <span class="back-label">← Inbox</span>
+
+    <div class="toolbar-actions">
+      <button title="Archive">▣</button>
+      <button title="Delete">⌫</button>
+      <button title="More">⋮</button>
+    </div>
+  </div>
+
+  <div class="email-content">
+
+    <div class="email-category">NEW BUSINESS SUBMISSION</div>
+
+    <h2>
+      Coral Ridge Towers - New Business Property Submission
+    </h2>
+
+    <div class="sender-details">
+
+      <div class="large-avatar">KR</div>
+
+      <div class="sender-text">
+        <strong>Kelly Ramos</strong>
+        <span>kelly.ramos&#64;amwins.com</span>
+        <span>To: Underwriting Team</span>
+      </div>
+
+      <span class="received-date">12:46 PM</span>
+
+    </div>
+
+    <div class="email-body">
+
+      <p>Hi Underwriting Team,</p>
+
+      <p>
+        Please find attached the new business property submission
+        for Coral Ridge Towers Condominium Association located in
+        Fort Lauderdale, Florida.
+      </p>
+
+      <p>
+        The property consists of two high-rise condominium buildings
+        with fire-resistant construction. The total insured value is
+        approximately $48.6M.
+      </p>
+
+      <p>
+        Please review the attached documents and let us know if you
+        need any additional information to proceed with the quotation.
+      </p>
+
+      <p>Looking forward to your feedback.</p>
+
+      <p>
+        Best Regards,<br/>
+        Kelly Ramos<br/>
+        Amwins
+      </p>
+
+    </div>
+
+    <div class="attachment-section">
+
+      <div class="attachment-heading">
+        <strong>Attachments (3)</strong>
+        <span>Download all ↓</span>
+      </div>
+
+      <div class="attachment-list">
+
+        <div class="attachment-item" *ngFor="let file of attachments">
+
+          <div class="file-icon"
+            [class.excel]="file.type === 'XLSX'">
+            {{ file.type === 'PDF' ? 'PDF' : 'XLS' }}
+          </div>
+
+          <div class="file-info">
+            <strong>{{ file.name }}</strong>
+            <span>{{ file.size }}</span>
+          </div>
+
+          <button title="Download">↓</button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="email-actions">
+
+      <button class="reply-button">↩ Reply</button>
+      <button class="forward-button">Forward →</button>
+
+    </div>
+
+  </div>
+
+</section>

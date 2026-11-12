@@ -1,0 +1,73 @@
+
+<section class="email-list-panel">
+
+  <div class="panel-heading">
+    <div>
+      <h3>Inbox</h3>
+      <span class="subheading">Broker submissions</span>
+    </div>
+
+    <span class="count-badge">{{ emails.length }}</span>
+  </div>
+
+  <div class="search-box">
+    <span>⌕</span>
+    <input type="text" placeholder="Search emails..." />
+  </div>
+
+  <div class="email-tabs">
+    <button
+      *ngFor="let tab of ['All', 'Unread', 'Flagged']"
+      [class.active]="activeTab === tab"
+      (click)="selectTab(tab)">
+      {{ tab }}
+    </button>
+  </div>
+
+  <div class="email-items">
+
+    <div
+      class="email-item"
+      *ngFor="let email of emails"
+      [class.selected]="email.selected">
+
+      <div class="email-top">
+        <div class="sender-info">
+          <div class="sender-avatar">{{ email.initials }}</div>
+          <strong>{{ email.sender }}</strong>
+        </div>
+
+        <span class="email-time">{{ email.time }}</span>
+      </div>
+
+      <div class="email-subject">
+        {{ email.subject }}
+      </div>
+
+      <div class="email-indicators">
+
+        <span
+          class="triage-score"
+          [ngClass]="getScoreClass(email.score)">
+          {{ email.score }}
+        </span>
+
+        <span
+          class="appetite-tag"
+          [class.in-appetite]="email.appetite === 'In Appetite'"
+          [class.borderline]="email.appetite === 'Borderline'"
+          [class.out-appetite]="email.appetite === 'Out of Appetite'">
+          {{ email.appetite }}
+        </span>
+
+      </div>
+
+      <div class="missing-info" *ngIf="email.missing > 0">
+        ⚠ {{ email.missing }} missing information items
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

@@ -7,6 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "local": "ng serve --configuration local",
     "serve:ssr:sense-underwriting-inbox": "node dist/sense-underwriting-inbox/server/server.mjs"
   },
   "private": true,

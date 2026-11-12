@@ -1,0 +1,242 @@
+
+:host {
+  display: block;
+  height: 100%;
+}
+
+.inbox-page {
+  height: 100vh;
+  min-height: 650px;
+  display: flex;
+  flex-direction: column;
+  background: #f5f6fa;
+  color: #25283b;
+  overflow: hidden;
+}
+
+.inbox-header {
+  height: 66px;
+  flex-shrink: 0;
+  background: #ffffff;
+  border-bottom: 1px solid #e8e9ef;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 22px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  h2 {
+    margin: 0;
+    font-size: 19px;
+    font-weight: 700;
+  }
+
+  span {
+    font-size: 11px;
+    color: #888b9c;
+  }
+}
+
+.brand-logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  background: #6654e8;
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.connection-status {
+  color: #626779;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background: #21b77a;
+  border-radius: 50%;
+}
+
+.user-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #e9e5ff;
+  color: #6654e8;
+  display: grid;
+  place-items: center;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.inbox-content {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 285px minmax(350px, 1fr) 340px;
+  gap: 12px;
+  padding: 14px;
+  overflow: hidden;
+}
+
+.inbox-toolbar {
+  padding: 12px 18px 0;
+  background: #f8f6ff;
+  border-bottom: 1px solid #e6e1f2;
+}
+
+.toolbar-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.search-input {
+  width: 32%;
+  min-width: 200px;
+}
+
+.search-input,
+.sort-select,
+.filter-group input,
+.filter-group select {
+  height: 40px;
+  padding: 0 13px;
+  border: 1px solid #e2ddef;
+  border-radius: 10px;
+  background: white;
+  color: #25233a;
+  font-size: 14px;
+}
+
+.sort-select {
+  width: 195px;
+}
+
+.sync-info {
+  color: #66617d;
+  font-size: 13px;
+}
+
+.new-email-btn {
+  margin-left: auto;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  background: linear-gradient(100deg, #2860ed, #a64ee8);
+  font-weight: 600;
+}
+
+.toolbar-filters {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.filter-group label {
+  color: #57516d;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .4px;
+}
+
+.filter-group select {
+  min-width: 185px;
+}
+
+.filter-group input {
+  width: 240px;
+}
+
+.filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.filter-chips button {
+  padding: 9px 12px;
+  border: 1px solid #e5def1;
+  border-radius: 22px;
+  background: white;
+  color: #514b65;
+  font-size: 13px;
+}
+
+.filter-chips span,
+.inbox-status-tabs span {
+  margin-left: 4px;
+  color: #77718b;
+}
+
+.inbox-status-tabs {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.inbox-status-tabs button {
+  padding: 12px 2px;
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  color: #514b65;
+  font-size: 14px;
+}
+
+.inbox-status-tabs button.active {
+  color: #6548ff;
+  border-bottom-color: #6548ff;
+}
+
+@media (max-width: 1100px) {
+  .inbox-content {
+    grid-template-columns: 250px minmax(300px, 1fr);
+  }
+
+  app-copilot-panel {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .inbox-content {
+    grid-template-columns: 1fr;
+    overflow-y: auto;
+  }
+
+  app-email-list,
+  app-copilot-panel {
+    display: none;
+  }
+}
