@@ -1,34 +1,10 @@
-
 <section class="email-list-panel">
-
-  <div class="panel-heading">
-    <div>
-      <h3>Inbox</h3>
-      <span class="subheading">Broker submissions</span>
-    </div>
-
-    <span class="count-badge">{{ emails.length }}</span>
-  </div>
-
-  <div class="search-box">
-    <span>⌕</span>
-    <input type="text" placeholder="Search emails..." />
-  </div>
-
-  <div class="email-tabs">
-    <button
-      *ngFor="let tab of ['All', 'Unread', 'Flagged']"
-      [class.active]="activeTab === tab"
-      (click)="selectTab(tab)">
-      {{ tab }}
-    </button>
-  </div>
 
   <div class="email-items">
 
     <div
       class="email-item"
-      *ngFor="let email of emails"
+      *ngFor="let email of filteredEmails"
       [class.selected]="email.selected">
 
       <div class="email-top">

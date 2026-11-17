@@ -1,5 +1,5 @@
 
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -19,6 +19,7 @@ export class EmailListComponent {
       sender: 'Kelly Ramos',
       initials: 'KR',
       subject: 'Coral Ridge Towers - New Business Submission',
+      insuredName: 'Coral Ridge Towers Condominium Association',
       time: '12:46 PM',
       score: 78,
       appetite: 'In Appetite',
@@ -30,6 +31,7 @@ export class EmailListComponent {
       sender: 'Jordan Price',
       initials: 'JP',
       subject: 'Atlas Hospitality Group - Property Renewal',
+      insuredName: 'Atlas Hospitality Group',
       time: '11:32 AM',
       score: 55,
       appetite: 'Borderline',
@@ -41,6 +43,7 @@ export class EmailListComponent {
       sender: 'Michael Scott',
       initials: 'MS',
       subject: 'Commercial Property Submission',
+      insuredName: 'Commercial Property Group',
       time: '10:15 AM',
       score: 32,
       appetite: 'Out of Appetite',
@@ -52,6 +55,7 @@ export class EmailListComponent {
       sender: 'Sarah Johnson',
       initials: 'SJ',
       subject: 'Updated Statement of Values',
+      insuredName: 'Coral Ridge Towers Condominium Association',
       time: '09:45 AM',
       score: 89,
       appetite: 'In Appetite',
@@ -69,5 +73,21 @@ export class EmailListComponent {
     if (score >= 40) return 'score-medium';
     return 'score-low';
   }
+
+  @Input() searchTerm = '';
+
+get filteredEmails() {
+  const search = this.searchTerm.trim().toLowerCase();
+
+  if (!search) {
+    return this.emails;
+  }
+
+  return this.emails.filter(email =>
+    email.sender.toLowerCase().includes(search) ||
+    email.subject.toLowerCase().includes(search) ||
+    (email.insuredName ?? '').toLowerCase().includes(search)
+  );
+}
 
 }

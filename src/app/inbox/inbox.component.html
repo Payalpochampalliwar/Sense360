@@ -1,109 +1,40 @@
 <div class="inbox-page">
 
-    <!-- Application Header -->
-    <header class="inbox-header">
-        <div class="brand">
-            <div class="brand-logo">S</div>
-            <div>
-                <h2>Sense</h2>
-                <span>Underwriting Intelligence</span>
-            </div>
-        </div>
-
-        <div class="header-right">
-            <span class="connection-status">
-                <span class="status-dot"></span>
-                Outlook Connected
-            </span>
-            <div class="user-avatar">UW</div>
-        </div>
-    </header>
-
-    <!-- Inbox Filters Toolbar -->
-    <div class="inbox-toolbar">
-
-        <div class="toolbar-top">
-            <input type="text" placeholder="⌕  Search sender, subject or insured" class="search-input" />
-
-            <select class="sort-select">
-                <option>Newest first</option>
-                <option>Hightest triage score</option>
-            </select>
-
-            <span class="sync-info">
-                NBSubmissions&#64;bluepond.ai · synced with Outlook
-            </span>
-
-            <button class="new-email-btn">
-                ✎ New email
-            </button>
-        </div>
-
-        <div class="toolbar-filters">
-            <div class="filter-group">
-                <label>BROKER COMPANY</label>
-                <select>
-                    <option>All companies</option>
-                    <option>AmWINS</option>
-                    <option>Bluepond (Internal)</option>
-                    <option>Bridge Speciality</option>
-                    <option>Federato</option>
-                    <option>PSR LLC</option>
-                    <option>Velocity Risk</option>
-                </select>
-            </div>
-
-            <div class="filter-group">
-                <label>BROKER EMAIL</label>
-                <input type="text" placeholder="name@broker.com" />
-            </div>
-
-            <div class="filter-group">
-                <label>RECEIVED</label>
-                <select>
-                    <option>Any time</option>
-                    <option>Today</option>
-                    <option>Yesterday</option>
-                    <option>Last 7 days</option>
-                    <option>Last 30 days</option>
-                </select>
-            </div>
-
-            <div class="filter-group attachment-filter">
-                <label>ATTACHMENT TYPE</label>
-                <div class="filter-chips">
-                    <button>SOV <span>3</span></button>
-                    <button>Loss runs <span>3</span></button>
-                    <button>Manuscript <span>2</span></button>
-                    <button>ACORD / app <span>6</span></button>
-                    <button>Other docs <span>4</span></button>
-                    <button>No attachments <span>2</span></button>
-                </div>
-            </div>
-        </div>
-
-        <div class="inbox-status-tabs">
-            <button class="active">To triage <span>6</span></button>
-            <button>Needs info <span>4</span></button>
-            <button>Linked to case <span>3</span></button>
-            <button>Referral <span>0</span></button>
-            <button>Declined <span>0</span></button>
-            <button>Other mail <span>2</span></button>
-            <button>All <span>11</span></button>
-            <button>Sent <span>0</span></button>
-        </div>
-
+  <!-- Application Header -->
+  <header class="inbox-header">
+    <div class="brand">
+      <div class="brand-logo">S</div>
+      <div>
+        <h2>Sense</h2>
+        <span>Underwriting Intelligence</span>
+      </div>
     </div>
 
-    <!-- Inbox Main Content -->
-    <main class="inbox-content">
+    <div class="header-right">
+      <span class="connection-status">
+        <span class="status-dot"></span>
+        Outlook Connected
+      </span>
+      <div class="user-avatar">UW</div>
+    </div>
+  </header>
 
-        <app-email-list></app-email-list>
+  <!-- Inbox Toolbar (filters + tabs) -->
+  <app-inbox-toolbar
+    (searchChange)="onSearchChange($event)">
+  </app-inbox-toolbar>
 
-        <app-email-viewer></app-email-viewer>
+  <!-- Main Inbox Content (3 columns) -->
+  <div class="inbox-content">
 
-        <app-copilot-panel></app-copilot-panel>
+    <app-email-list
+      [searchTerm]="searchTerm">
+    </app-email-list>
 
-    </main>
+    <app-email-viewer></app-email-viewer>
+
+    <app-copilot-panel></app-copilot-panel>
+
+  </div>
 
 </div>

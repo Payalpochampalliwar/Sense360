@@ -13,25 +13,41 @@
 
   <div class="email-content">
 
-    <div class="email-category">NEW BUSINESS SUBMISSION</div>
+  <div class="email-category">NEW BUSINESS SUBMISSION</div>
 
-    <h2>
-      Coral Ridge Towers - New Business Property Submission
-    </h2>
+  <h2>
+    Coral Ridge Towers - New Business Property Submission
+  </h2>
 
-    <div class="sender-details">
+  <div class="sender-details">
 
-      <div class="large-avatar">KR</div>
+    <div class="large-avatar">KR</div>
 
-      <div class="sender-text">
-        <strong>Kelly Ramos</strong>
-        <span>kelly.ramos&#64;amwins.com</span>
-        <span>To: Underwriting Team</span>
-      </div>
-
-      <span class="received-date">12:46 PM</span>
-
+    <div class="sender-text">
+      <strong>Kelly Ramos</strong>
+      <span>kelly.ramos&#64;amwins.com</span>
+      <span>To: Underwriting Team</span>
     </div>
+
+    <span class="received-date">12:46 PM</span>
+
+  </div>
+
+  <!-- Reply and Forward buttons: above the email body -->
+  <div class="email-actions" *ngIf="composeMode === null">
+
+    <button class="reply-button" (click)="openReply()">
+      ↩ Reply
+    </button>
+
+    <button class="forward-button" (click)="openForward()">
+      Forward →
+    </button>
+
+  </div>
+
+  <!-- Original email content -->
+  <ng-container *ngIf="composeMode === null; else composeTemplate">
 
     <div class="email-body">
 
@@ -57,8 +73,8 @@
       <p>Looking forward to your feedback.</p>
 
       <p>
-        Best Regards,<br/>
-        Kelly Ramos<br/>
+        Best Regards,<br />
+        Kelly Ramos<br />
         Amwins
       </p>
 
@@ -75,8 +91,7 @@
 
         <div class="attachment-item" *ngFor="let file of attachments">
 
-          <div class="file-icon"
-            [class.excel]="file.type === 'XLSX'">
+          <div class="file-icon" [class.excel]="file.type === 'XLSX'">
             {{ file.type === 'PDF' ? 'PDF' : 'XLS' }}
           </div>
 
@@ -85,7 +100,7 @@
             <span>{{ file.size }}</span>
           </div>
 
-          <button title="Download">↓</button>
+          <button type="button" title="Download">↓</button>
 
         </div>
 
@@ -93,13 +108,117 @@
 
     </div>
 
-    <div class="email-actions">
+  </ng-container>
 
-      <button class="reply-button">↩ Reply</button>
-      <button class="forward-button">Forward →</button>
+  <!-- Reply / Forward compose template -->
+  <ng-template #composeTemplate>
+
+    <div class="compose-panel">
+
+      <!-- Compose header -->
+      <div class="compose-toolbar">
+
+        <button type="button" class="send-button" (click)="sendEmail()">
+          <span>➤</span> Send
+        </button>
+
+        <span class="from-details">
+          <strong>From:</strong> {{ fromEmail }}
+        </span>
+
+        <div class="compose-header-actions">
+          <button type="button" title="Delete draft" (click)="closeCompose()">
+            🗑
+          </button>
+          <button type="button" title="Close" (click)="closeCompose()">
+            ✕
+          </button>
+        </div>
+
+      </div>
+
+      <!-- To field -->
+      <div class="compose-row">
+
+        <label>To</label>
+
+        <input
+          type="text"
+          [(ngModel)]="toEmail"
+          placeholder="Enter recipient email"
+        />
+
+        <div class="recipient-options">
+          <button type="button" (click)="toggleCc()">Cc</button>
+          <button type="button" (click)="toggleBcc()">Bcc</button>
+        </div>
+
+      </div>
+
+      <!-- Cc field -->
+      <div class="compose-row" *ngIf="showCc">
+        <label>Cc</label>
+        <input
+          type="text"
+          [(ngModel)]="ccEmail"
+          placeholder="Enter Cc recipients"
+        />
+      </div>
+
+      <!-- Bcc field -->
+      <div class="compose-row" *ngIf="showBcc">
+        <label>Bcc</label>
+        <input
+          type="text"
+          [(ngModel)]="bccEmail"
+          placeholder="Enter Bcc recipients"
+        />
+      </div>
+
+      <!-- Subject -->
+      <div class="compose-subject">
+        <input
+          type="text"
+          [(ngModel)]="emailSubject"
+          placeholder="Add a subject"
+        />
+      </div>
+
+      <!-- Forwarded attachments -->
+      <div class="forward-attachments" *ngIf="composeMode === 'forward'">
+
+        <div class="attachment-item" *ngFor="let file of attachments">
+
+          <div class="file-icon" [class.excel]="file.type === 'XLSX'">
+            {{ file.type === 'PDF' ? 'PDF' : 'XLS' }}
+          </div>
+
+          <div class="file-info">
+            <strong>{{ file.name }}</strong>
+            <span>{{ file.size }}</span>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Message body -->
+      <textarea
+        class="compose-message"
+        [(ngModel)]="emailMessage"
+        placeholder="Write your message..."
+      ></textarea>
+
+      <div class="compose-footer">
+        <button type="button" (click)="closeCompose()">Discard</button>
+      </div>
+
+      <p class="action-message" *ngIf="actionMessage">
+        {{ actionMessage }}
+      </p>
 
     </div>
 
-  </div>
+  </ng-template>
 
-</section>
+</div>

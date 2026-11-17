@@ -1,0 +1,173 @@
+/* inbox-toolbar.component.scss  — FULL FILE (poori replace karo) */
+
+:host {
+  display: block;
+  height: auto;
+  min-height: 0;
+}
+
+.inbox-toolbar {
+  height: auto;
+  min-height: 0;
+  padding: 0 16px;
+  border-bottom: 1px solid #e8e9ef;
+}
+
+/* ---------- Row 1: search / sort / sync / new email ---------- */
+.toolbar-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0 10px;
+}
+
+.search-input {
+  flex: 0 1 480px;
+  min-width: 220px;
+  height: 40px;
+  padding: 0 14px;
+  border: 1px solid #e3e4ee;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 13px;
+  outline: none;
+
+  &:focus { border-color: #6654e8; }
+}
+
+.sort-select {
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid #e3e4ee;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 13px;
+}
+
+.sync-info {
+  font-size: 12px;
+  color: #77798b;
+}
+
+.new-email-btn {
+  margin-left: auto;
+  height: 40px;
+  padding: 0 18px;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  background: linear-gradient(90deg, #3b5bf5, #a04ae8);
+}
+
+/* ---------- Row 2: filters ---------- */
+.toolbar-filters {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding-bottom: 10px;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    color: #5b5e70;
+  }
+
+  select,
+  input {
+    height: 34px;
+    min-width: 150px;
+    padding: 0 10px;
+    border: 1px solid #e3e4ee;
+    border-radius: 7px;
+    background: #fff;
+    font-size: 12px;
+    outline: none;
+  }
+}
+
+.filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  button {
+    height: 34px;
+    padding: 0 14px;
+    border: 1px solid #e3e4ee;
+    border-radius: 999px;
+    background: #fff;
+    font-size: 12px;
+    color: #3d4052;
+    cursor: pointer;
+
+    span {
+      margin-left: 4px;
+      color: #9295a5;
+      font-size: 11px;
+    }
+
+    &:hover { border-color: #6654e8; }
+  }
+}
+
+/* ---------- Row 3: status tabs ---------- */
+.inbox-status-tabs {
+  display: flex;
+  gap: 22px;
+  overflow-x: auto;
+
+  button {
+    padding: 10px 2px;
+    border: none;
+    border-bottom: 2px solid transparent;
+    background: transparent;
+    font-size: 13px;
+    color: #3d4052;
+    white-space: nowrap;
+    cursor: pointer;
+
+    span {
+      margin-left: 4px;
+      font-size: 11px;
+      color: #9295a5;
+    }
+
+    &.active {
+      color: #6654e8;
+      border-bottom-color: #6654e8;
+      font-weight: 600;
+    }
+  }
+}
+
+.custom-date-range {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.custom-date-range .filter-group {
+  min-width: 170px;
+}
+
+.custom-date-range input[type="date"] {
+  width: 175px;
+  height: 40px;
+  padding: 0 10px;
+  border: 1px solid #e2ddef;
+  border-radius: 10px;
+  background: white;
+  color: #25233a;
+  font-size: 14px;
+}
