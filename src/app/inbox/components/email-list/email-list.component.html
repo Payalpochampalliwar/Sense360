@@ -5,29 +5,41 @@
     <div
       class="email-item"
       *ngFor="let email of filteredEmails"
-      [class.selected]="email.selected">
+      [class.selected]="email.selected"
+      [class.unread]="email.unread"
+      [attr.aria-current]="email.selected ? 'true' : null">
 
       <div class="email-top">
+
+        <!-- NEW: Unread indicator -->
         <div class="sender-info">
           <div class="sender-avatar">{{ email.initials }}</div>
           <strong>{{ email.sender }}</strong>
         </div>
 
         <span class="email-time">{{ email.time }}</span>
+
       </div>
 
       <div class="email-subject">
         {{ email.subject }}
       </div>
 
+      <!-- NEW: Email preview -->
+      <div class="email-preview" *ngIf="email.preview">
+        {{ email.preview }}
+      </div>
+
       <div class="email-indicators">
 
+        <!-- Existing triage score -->
         <span
           class="triage-score"
           [ngClass]="getScoreClass(email.score)">
           {{ email.score }}
         </span>
 
+        <!-- Existing appetite -->
         <span
           class="appetite-tag"
           [class.in-appetite]="email.appetite === 'In Appetite'"
@@ -36,10 +48,49 @@
           {{ email.appetite }}
         </span>
 
-      </div>
+        <!-- NEW: Email category -->
+        <span class="email-category-tag" *ngIf="email.category">
+          {{ email.category }}
+        </span>
 
-      <div class="missing-info" *ngIf="email.missing > 0">
-        ⚠ {{ email.missing }} missing information items
+        <!-- NEW: Coverage type -->
+        <span class="email-category-tag" *ngIf="email.coverageType">
+          {{ email.coverageType }}
+        </span>
+
+        <!-- Existing missing information -->
+        <span class="missing-info" *ngIf="email.missing > 0">
+          ⚠ {{ email.missing }} missing
+        </span>
+
+        <!-- NEW: Opportunity and clearance status -->
+        <span class="opportunity-tag" *ngIf="email.opportunity">
+          {{ email.opportunity }} · {{ email.clearanceStatus }}
+        </span>
+
+        <!-- NEW: Attachment badge -->
+        <span
+          class="attachment-tag"
+          *ngIf="email.attachmentLabel"
+          [title]="email.attachmentTitle">
+
+          <svg
+            width="10"
+            height="10"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round">
+
+            <path d="m21 11-9 9a5 5 0 0 1-7-7l9-9a3.5 3.5 0 0 1 5 5l-9 9a2 2 0 0 1-3-3l8-8"></path>
+
+          </svg>
+
+          {{ email.attachmentLabel }}
+        </span>
+
       </div>
 
     </div>

@@ -24,7 +24,15 @@ export class EmailListComponent {
       score: 78,
       appetite: 'In Appetite',
       missing: 2,
-      selected: true
+      selected: true,
+      unread: true,
+      preview: 'Hi team, Please find attached our new business submission for Coral Ridge Towers Condominium Association, a 2-',
+      category: 'New submission',
+      coverageType: 'Core',
+      opportunity: 'OPP-48224',
+      clearanceStatus: 'Pending clearance',
+      attachmentLabel: 'ACORD',
+      attachmentTitle: 'ACORD 125 – Coral Ridge.pdf, ACORD 140 – Coral Ridge.pdf, SOV_Coral_Ridge_Towers.xlsx'
     },
     {
       id: 2,
@@ -36,7 +44,15 @@ export class EmailListComponent {
       score: 55,
       appetite: 'Borderline',
       missing: 3,
-      selected: false
+      selected: false,
+      unread: true,
+      preview: 'Hi team, We are approaching the renewal date for Atlas Hospitality Group. Please find the updated property information and renewal documents attached.',
+      category: 'Renewal',
+      coverageType: 'Core',
+      opportunity: 'OPP-48225',
+      clearanceStatus: 'Needs info',
+      attachmentLabel: 'SOV',
+      attachmentTitle: 'Atlas_Property_SOV.xlsx, Atlas_Loss_Runs.pdf'
     },
     {
       id: 3,
@@ -48,7 +64,15 @@ export class EmailListComponent {
       score: 32,
       appetite: 'Out of Appetite',
       missing: 1,
-      selected: false
+      selected: false,
+      unread: false,
+      preview: 'Hello Underwriting Team, Please review the attached commercial property submission and let us know whether this risk fits your appetite.',
+      category: 'New submission',
+      coverageType: 'Core',
+      opportunity: 'OPP-48226',
+      clearanceStatus: 'Pending clearance',
+      attachmentLabel: 'ACORD',
+      attachmentTitle: 'Commercial_Property_ACORD.pdf'
     },
     {
       id: 4,
@@ -60,7 +84,15 @@ export class EmailListComponent {
       score: 89,
       appetite: 'In Appetite',
       missing: 0,
-      selected: false
+      selected: false,
+      unread: false,
+      preview: 'Hi team, Please find attached the revised Statement of Values for Coral Ridge Towers. Kindly use this updated version for your review.',
+      category: 'Updated documents',
+      coverageType: 'Core',
+      opportunity: 'OPP-48224',
+      clearanceStatus: 'Cleared',
+      attachmentLabel: 'SOV',
+      attachmentTitle: 'Updated_SOV_Coral_Ridge_Towers.xlsx'
     }
   ];
 

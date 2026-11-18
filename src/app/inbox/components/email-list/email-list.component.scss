@@ -195,3 +195,69 @@
   color: #c48a26;
   font-size: 9px;
 }
+
+/* Unread indicator */
+.email-top {
+  position: relative;
+}
+
+.unread-dot {
+  width: 7px;
+  height: 7px;
+  min-width: 7px;
+  border-radius: 50%;
+  background: #6654e8;
+}
+
+/* Unread email sender */
+.email-item.unread .sender-info strong {
+  font-weight: 700;
+}
+
+/* Email preview */
+.email-preview {
+  margin-top: 5px;
+  color: #77798b;
+  font-size: 12px;
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Category and coverage badges */
+.email-category-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 7px;
+  border-radius: 4px;
+  background: #f0edff;
+  color: #6551c9;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+/* Opportunity status */
+.opportunity-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 7px;
+  border-radius: 4px;
+  background: #fff4df;
+  color: #a36b13;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+/* Attachment badge */
+.attachment-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 7px;
+  border-radius: 4px;
+  background: #edf2f8;
+  color: #53677e;
+  font-size: 10px;
+  white-space: nowrap;
+}

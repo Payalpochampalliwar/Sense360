@@ -77,15 +77,13 @@
         </div>
     </div>
 
-    <div class="inbox-status-tabs">
-        <button class="active">To triage <span>6</span></button>
-        <button>Needs info <span>4</span></button>
-        <button>Linked to case <span>3</span></button>
-        <button>Referral <span>0</span></button>
-        <button>Declined <span>0</span></button>
-        <button>Other mail <span>2</span></button>
-        <button>All <span>11</span></button>
-        <button>Sent <span>0</span></button>
-    </div>
+    <nav class="ibx-tabs" id="ibTabs" role="tablist" aria-label="Email folders">
+        <button role="tab" data-mtab="triage" aria-selected="false">Pending clearance<span class="n">6</span></button>
+        <button role="tab" data-mtab="needs" aria-selected="false">Needs info<span class="n">4</span></button>
+        <button role="tab" data-mtab="cleared" aria-selected="false">Cleared<span class="n">4</span></button>
+        <button role="tab" data-mtab="other" aria-selected="false">Other mail<span class="n">2</span></button>
+        <button role="tab" data-mtab="all" aria-selected="true">All<span class="n">11</span></button>
+        <button role="tab" data-mtab="sent" aria-selected="false">Sent<span class="n">0</span></button>
+    </nav>
 
 </div>
